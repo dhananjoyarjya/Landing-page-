@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="InfluBrand Agency - Premium Influencer Marketing Agency helping businesses grow faster through trusted creators.">
+    <meta name="keywords" content="Influencer Marketing, Brand Collaborations, Social Media Growth, InfluBrand Agency, Creator Partnerships">
+    <title>InfluBrand Agency | Premium Influencer Marketing Agency</title>
+    
+    <!-- Google Fonts: Montserrat, Poppins & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           1. RESET & VARIABLES
+           ========================================================================== */
+        :root {
+            --bg-primary: #050505;
+            --bg-secondary: #080808;
+            --bg-card: rgba(18, 18, 18, 0.65);
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-glow: rgba(212, 175, 55, 0.25);
+            --text-white: #ffffff;
+            --text-grey: #bfbfbf;
+            --border-gold: rgba(212, 175, 55, 0.3);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
+
+        /* ==========================================================================
+           PREMIUM SCROLL ANIMATIONS (AOS STYLE)
+           ========================================================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Delay Utilities for Staggered Animations */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* ==========================================================================
+           2. REUSABLE COMPONENTS
+           ========================================================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .text-gold {
+            color: var(--gold);
+            background: linear-gradient(135deg, #fff 0%, var(--gold) 50%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--text-grey);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold) 0%, #aa820a 100%);
+            color: #000;
+            box-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--border-gold);
+            color: var(--text-white);
+        }
+
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 32px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+
+        /* ==========================================================================
+           3. NAVBAR & SHORT BRAND LOGO "IB"
+           ========================================================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        /* IB Premium Logo Design */
+        .logo-ib {
+            font-family: 'Montserrat', 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .logo-ib .letter-i {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .logo-ib .letter-b {
+            color: var(--gold);
+            background: linear-gradient(135deg, #f3e5ab 0%, var(--gold) 50%, #997815 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+        }
+
+        .logo-ib .dot {
+            color: var(--gold);
+            font-size: 2.5rem;
+            line-height: 0;
+            margin-left: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-grey);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-white);
+        }
+
+        /* ==========================================================================
+           4. HERO SECTION
+           ========================================================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 120px;
+            padding-bottom: 60px;
+            position: relative;
+            background: radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+        }
+
+        .blur-circle-1 {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(212, 175, 55, 0.12);
+            filter: blur(100px);
+            border-radius: 50%;
+            animation: float 8s infinite alternate ease-in-out;
+            pointer-events: none;
+        }
+
+        .blur-circle-2 {
+            position: absolute;
+            bottom: 20%;
+            right: 10%;
+            width: 350px;
+            height: 350px;
+            background: rgba(212, 175, 55, 0.08);
+            filter: blur(120px);
+            border-radius: 50%;
+            animation: float 10s infinite alternate-reverse ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-40px) scale(1.1); }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-gold);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-grey);
+            margin-bottom: 40px;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* ==========================================================================
+           5. TRUSTED BRANDS
+           ========================================================================== */
+        .brands {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
+            background: var(--bg-secondary);
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            align-items: center;
+        }
+
+        .brand-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-grey);
+            transition: var(--transition);
+        }
+
+        .brand-card:hover {
+            color: var(--gold);
+            border-color: var(--border-gold);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-3px);
+        }
+
+        /* ==========================================================================
+           6. SERVICES
+           ========================================================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card .icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-gold);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-grey);
+        }
+
+        /* ==========================================================================
+           7. PROCESS
+           ========================================================================== */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            position: relative;
+        }
+
+        .process-step {
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(212, 175, 55, 0.2);
+            margin-bottom: -20px;
+        }
+
+        .process-step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            font-size: 0.88rem;
+            color: var(--text-grey);
+        }
+
+        /* ==========================================================================
+           8. WHY CHOOSE US
+           ========================================================================== */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .why-card {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .why-card i {
+            font-size: 2rem;
+            color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-gold);
+            flex-shrink: 0;
+        }
+
+        /* ==========================================================================
+           9. ABOUT & STATS
+           ========================================================================== */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .about-text p {
+            color: var(--text-grey);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-card p {
+            color: var(--text-grey);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================================================
+           10. AUDIENCE TARGETING (BRANDS & INFLUENCERS)
+           ========================================================================== */
+        .dual-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .dual-card {
+            text-align: center;
+            padding: 50px 32px;
+        }
+
+        .dual-card h3 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .dual-card p {
+            color: var(--text-grey);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================================================
+           11. LEADERSHIP SECTION
+           ========================================================================== */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            justify-content: center;
+        }
+
+        .leader-card {
+            text-align: center;
+            padding: 40px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .leader-img-wrapper {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 24px auto;
+            position: relative;
+            border-radius: 50%;
+        }
+
+        .leader-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 25px var(--gold-glow);
+            transition: var(--transition);
+            background-color: #111;
+        }
+
+        .leader-card:hover .leader-img {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.5);
+        }
+
+        .leader-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .leader-card .position {
+            color: var(--gold);
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .leader-card .bio {
+            color: var(--text-grey);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           12. TESTIMONIALS & FAQ
+           ========================================================================== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .testimonial-card .client-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .client-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid var(--gold);
+        }
+
+        .client-info h4 {
+            font-size: 1rem;
+        }
+
+        .client-info p {
+            font-size: 0.8rem;
+            color: var(--text-grey);
+        }
+
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-header {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .faq-header i {
+            color: var(--gold);
+            transition: var(--transition);
+        }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 24px;
+            color: var(--text-grey);
+            font-size: 0.9rem;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-body {
+            max-height: 200px;
+            padding: 0 24px 20px 24px;
+        }
+
+        .faq-item.active .faq-header i {
+            transform: rotate(180deg);
+        }
+
+        /* ==========================================================================
+           13. CONTACT SECTION & FORM
+           ========================================================================== */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+        }
+
+        .contact-info p {
+            color: var(--text-grey);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .contact-item i {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-gold);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-item div h4 {
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .contact-item div p, .contact-item div a {
+            color: var(--text-grey);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .contact-item div a:hover {
+            color: var(--gold);
+        }
+
+        .contact-form-card {
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-grey);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            color: var(--text-white);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.02);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ==========================================================================
+           14. FOOTER & BUSINESS DETAILS
+           ========================================================================== */
+        footer {
+            border-top: 1px solid var(--border-glass);
+            padding: 70px 0 30px 0;
+            background: var(--bg-secondary);
+            font-size: 0.9rem;
+            color: var(--text-grey);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand .logo-ib {
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: var(--text-grey);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            max-width: 320px;
+        }
+
+        .udyam-badge {
+            display: inline-flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 10px 16px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            font-size: 0.82rem;
+            color: var(--gold-light);
+            margin-top: 10px;
+        }
+
+        .udyam-badge strong {
+            color: var(--gold);
+            font-size: 0.85rem;
+        }
+
+        .footer-column h4 {
+            color: var(--text-white);
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 30px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-grey);
+            transition: var(--transition);
+            font-size: 0.88rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 4px;
+        }
+
+        .footer-contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            font-size: 0.88rem;
+        }
+
+        .footer-contact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-contact-list i {
+            color: var(--gold);
+            margin-top: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-glass);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom span {
+            color: var(--gold);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+            color: #fff;
+        }
+
+        /* ==========================================================================
+           15. RESPONSIVE DESIGN
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3rem; }
+            .about-content { grid-template-columns: 1fr; }
+            .dual-cards { grid-template-columns: 1fr; }
+            .contact-container { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--bg-primary);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: var(--transition);
+            }
+            .nav-links.active { left: 0; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 0.95rem; }
+            .section-title h2 { font-size: 1.8rem; }
+            .section { padding: 60px 0; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <!-- Short Brand Logo IB (White + Gold Font) -->
+            <a href="#" class="logo-ib">
+                <span class="letter-i">I</span><span class="letter-b">B</span><span class="dot">.</span>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="https://wa.me/918822883262" target="_blank" class="btn btn-gold" style="padding: 10px 22px; font-size: 0.85rem;">
+                <i class="fa-brands fa-whatsapp"></i> Let's Talk
+            </a>
+            <div class="hamburger" id="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="blur-circle-1"></div>
+        <div class="blur-circle-2"></div>
+        <div class="container hero-content reveal">
+            <div class="hero-badge">
+                <i class="fa-solid fa-crown"></i> Premier Influencer Marketing Agency
+            </div>
+            <h1><span class="text-gold">InfluBrand Agency</span><br>Connecting Brands with the Right Influencers</h1>
+            <p>Premium Influencer Marketing Agency helping businesses grow faster through trusted creators, high-converting digital campaigns, and data-driven engagement strategy.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-gold"><i class="fa-solid fa-paper-plane"></i> Contact Us</a>
+                <a href="https://wa.me/918822883262" target="_blank" class="btn btn-outline"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUSTED BRANDS -->
+    <section class="brands">
+        <div class="container">
+            <div class="brands-grid reveal">
+                <div class="brand-card"><i class="fa-brands fa-nike"></i> Nike</div>
+                <div class="brand-card"><i class="fa-brands fa-amazon"></i> Amazon</div>
+                <div class="brand-card"><i class="fa-brands fa-spotify"></i> Spotify</div>
+                <div class="brand-card"><i class="fa-solid fa-a"></i> Adobe</div>
+                <div class="brand-card"><i class="fa-solid fa-utensils"></i> Swiggy</div>
+                <div class="brand-card"><i class="fa-solid fa-burger"></i> Zomato</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our <span class="text-gold">Services</span></h2>
+                <p>Tailored influencer marketing solutions designed to elevate your brand presence and drive high conversion metrics.</p>
+            </div>
+            <div class="services-grid">
+                <div class="glass-card service-card reveal delay-1">
+                    <div class="icon-box"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>Brand Collaboration</h3>
+                    <p>Connecting premium brands with aligned creators to build authentic promotional partnerships.</p>
+                </div>
+                <div class="glass-card service-card reveal delay-2">
+                    <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Influencer Growth</h3>
+                    <p>Helping creators scale their audience reach, secure sponsorships, and professionalize their brand.</p>
+                </div>
+                <div class="glass-card service-card reveal delay-3">
+                    <div class="icon-box"><i class="fa-solid fa-list-check"></i></div>
+                    <h3>Campaign Management</h3>
+                    <p>End-to-end execution of marketing campaigns, handling contracts, deliverables, and schedules.</p>
+                </div>
+                <div class="glass-card service-card reveal delay-4">
+                    <div class="icon-box"><i class="fa-solid fa-chess"></i></div>
+                    <h3>Campaign Strategy</h3>
+                    <p>Data-backed strategies crafted to maximize return on ad spend and reach target audiences.</p>
+                </div>
+                <div class="glass-card service-card reveal delay-1">
+                    <div class="icon-box"><i class="fa-solid fa-video"></i></div>
+                    <h3>UGC Marketing</h3>
+                    <p>High-converting User Generated Content created by top creators for ad placements.</p>
+                </div>
+                <div class="glass-card service-card reveal delay-2">
+                    <div class="icon-box"><i class="fa-brands fa-instagram"></i></div>
+                    <h3>Instagram Promotions</h3>
+                    <p>Reels, Stories, and static post campaigns executed by viral Instagram influencers.</p>
+                </div>
+                <div class="glass-card service-card reveal delay-3">
+                    <div class="icon-box"><i class="fa-brands fa-youtube"></i></div>
+                    <h3>YouTube Promotions</h3>
+                    <p>Dedicated video reviews, integrated shoutouts, and long-form video sponsorships.</p>
+                </div>
+                <div class="glass-card service-card reveal delay-4">
+                    <div class="icon-box"><i class="fa-solid fa-user-gear"></i></div>
+                    <h3>Personal Branding</h3>
+                    <p>Structuring individual creator profiles to establish long-term industry authority.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our <span class="text-gold">Process</span></h2>
+                <p>A streamlined, 4-step framework designed for seamless execution and predictable growth.</p>
+            </div>
+            <div class="process-grid">
+                <div class="glass-card process-step reveal delay-1">
+                    <div class="step-number">01</div>
+                    <h3>Brand Analysis</h3>
+                    <p>We analyze your business goals, target audience, and campaign KPIs to define clear objectives.</p>
+                </div>
+                <div class="glass-card process-step reveal delay-2">
+                    <div class="step-number">02</div>
+                    <h3>Influencer Selection</h3>
+                    <p>We handpick vetted influencers whose audience demographics match your exact target market.</p>
+                </div>
+                <div class="glass-card process-step reveal delay-3">
+                    <div class="step-number">03</div>
+                    <h3>Campaign Launch</h3>
+                    <p>We oversee content production, approvals, posting timelines, and real-time execution.</p>
+                </div>
+                <div class="glass-card process-step reveal delay-4">
+                    <div class="step-number">04</div>
+                    <h3>Growth Report</h3>
+                    <p>Receive comprehensive performance analytics detailing reach, engagement, conversions, and ROI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Why <span class="text-gold">Choose Us</span></h2>
+                <p>We combine creativity, data, and direct relationships to deliver measurable business outcomes.</p>
+            </div>
+            <div class="why-grid">
+                <div class="glass-card why-card reveal delay-1">
+                    <i class="fa-solid fa-bolt"></i>
+                    <div>
+                        <h3>Fast Growth</h3>
+                        <p>Accelerate brand awareness with targeted, high-impact campaigns.</p>
+                    </div>
+                </div>
+                <div class="glass-card why-card reveal delay-2">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <div>
+                        <h3>Creative Campaigns</h3>
+                        <p>Unique storytelling methods that turn viewers into paying customers.</p>
+                    </div>
+                </div>
+                <div class="glass-card why-card reveal delay-3">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                        <h3>Verified Influencers</h3>
+                        <p>Strict auditing process to eliminate fake followers and bot engagement.</p>
+                    </div>
+                </div>
+                <div class="glass-card why-card reveal delay-1">
+                    <i class="fa-solid fa-square-poll-vertical"></i>
+                    <div>
+                        <h3>Real Results</h3>
+                        <p>Transparent tracking focused on impressions, clicks, and revenue metrics.</p>
+                    </div>
+                </div>
+                <div class="glass-card why-card reveal delay-2">
+                    <i class="fa-solid fa-headset"></i>
+                    <div>
+                        <h3>24/7 Support</h3>
+                        <p>Dedicated campaign managers assigned to assist you around the clock.</p>
+                    </div>
+                </div>
+                <div class="glass-card why-card reveal delay-3">
+                    <i class="fa-solid fa-piggy-bank"></i>
+                    <div>
+                        <h3>ROI Focused</h3>
+                        <p>Optimized budget allocation designed to secure maximum returns for every dollar spent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT & STATS -->
+    <section class="section" id="about" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text reveal">
+                    <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Leading the Future of <span class="text-gold">Creator Marketing</span></h2>
+                    <p>InfluBrand Agency is a full-service influencer marketing agency bridging the gap between innovative brands and dynamic digital creators.</p>
+                    <p><strong>Our Mission:</strong> To empower brands through authentic creator partnerships while building sustainable revenue pathways for influencers.</p>
+                    <p><strong>Our Vision:</strong> To become the global benchmark for high-ROI, transparent, and luxury digital media marketing.</p>
+                </div>
+                <div class="glass-card reveal delay-2">
+                    <h3 style="color: var(--gold); margin-bottom: 15px;"><i class="fa-solid fa-gem"></i> Core Values</h3>
+                    <ul style="display: flex; flex-direction: column; gap: 12px; color: var(--text-grey); font-size: 0.95rem;">
+                        <li><strong style="color: #fff;">Integrity:</strong> Complete transparency in performance data and pricing structures.</li>
+                        <li><strong style="color: #fff;">Innovation:</strong> Leveraging cutting-edge strategies in creator marketing.</li>
+                        <li><strong style="color: #fff;">Excellence:</strong> Delivering luxury execution across every touchpoint.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Animated Stats Counter -->
+            <div class="stats-grid">
+                <div class="glass-card stat-card reveal delay-1">
+                    <div class="number" data-target="500">0</div>
+                    <p>Influencers Managed</p>
+                </div>
+                <div class="glass-card stat-card reveal delay-2">
+                    <div class="number" data-target="100">0</div>
+                    <p>Brands Partnered</p>
+                </div>
+                <div class="glass-card stat-card reveal delay-3">
+                    <div class="number" data-target="1000">0</div>
+                    <p>Campaigns Completed</p>
+                </div>
+                <div class="glass-card stat-card reveal delay-4">
+                    <div class="number" data-target="98">0</div>
+                    <p>% Client Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DUAL AUDIENCE TARGETING (JOIN SECTION) -->
+    <section class="section">
+        <div class="container">
+            <div class="dual-cards">
+                <div class="glass-card dual-card reveal delay-1">
+                    <h3 class="text-gold">For Brands</h3>
+                    <p>Scale your sales pipeline, launch new products, and build consumer trust using curated creators who speak to your core audience.</p>
+                    <a href="https://wa.me/918822883262" target="_blank" class="btn btn-gold"><i class="fa-solid fa-briefcase"></i> Hire Influencers</a>
+                </div>
+                <div class="glass-card dual-card reveal delay-2">
+                    <h3 class="text-gold">For Influencers</h3>
+                    <p>Monetize your content, secure high-paying sponsorships with global brands, and elevate your personal image with professional guidance.</p>
+                    <a href="https://wa.me/918822883262" target="_blank" class="btn btn-outline"><i class="fa-solid fa-user-plus"></i> Join Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEADERSHIP SECTION -->
+    <section class="section" id="leadership" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Agency <span class="text-gold">Leadership</span></h2>
+                <p>Meet the visionary minds directing our business strategy, operational precision, and brand relationships.</p>
+            </div>
+            <div class="leadership-grid">
+                <!-- 1. Dhananjoy Arjya -->
+                <div class="glass-card leader-card reveal delay-1">
+                    <div class="leader-img-wrapper">
+                        <img src="https://i.postimg.cc/cHtMPWHh/dhananjoy.png" alt="Dhananjoy Arjya" class="leader-img">
+                    </div>
+                    <h3>Dhananjoy Arjya</h3>
+                    <div class="position">Founder & CEO</div>
+                    <p class="bio">Dhananjoy Arjya is the Founder & CEO of InfluBrand Agency. He leads the company's vision, business strategy, client relationships, and influencer marketing campaigns. His focus is on helping brands grow through authentic creator partnerships and result-driven digital marketing solutions.</p>
+                </div>
+
+                <!-- 2. Rakesh Das -->
+                <div class="glass-card leader-card reveal delay-2">
+                    <div class="leader-img-wrapper">
+                        <img src="https://i.postimg.cc/t4RdpWJn/rakesh.png" alt="Rakesh Das" class="leader-img">
+                    </div>
+                    <h3>RAKESH DAS</h3>
+                    <div class="position">Outreach & Creative Support</div>
+                    <p class="bio">Handles cold email outreach, PDF/media kit preparation, and supporting brand outreach materials.</p>
+                </div>
+
+                <!-- 3. Prem Khushwaha -->
+                <div class="glass-card leader-card reveal delay-3">
+                    <div class="leader-img-wrapper">
+                        <img src="https://i.postimg.cc/mrNPtQDS/1000180793-clean.png" alt="Prem Khushwaha" class="leader-img">
+                    </div>
+                    <h3>PREM KHUSHWAHA</h3>
+                    <div class="position">Brand Partnerships Manager</div>
+                    <p class="bio">Handles brand communication, client meetings, campaign discussions, negotiations, and partnership coordination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Client <span class="text-gold">Testimonials</span></h2>
+                <p>Hear what top marketing directors and brand managers have to say about working with us.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="glass-card testimonial-card reveal delay-1">
+                    <p style="font-size: 0.9rem; color: var(--text-grey); font-style: italic;">"InfluBrand Agency delivered an incredible 4x ROI on our main campaign launch. Their influencer vetting process is unmatched."</p>
+                    <div class="client-info">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="Client Avatar">
+                        <div>
+                            <h4>Sophia Reynolds</h4>
+                            <p>Marketing Lead, Tech Corp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card testimonial-card reveal delay-2">
+                    <p style="font-size: 0.9rem; color: var(--text-grey); font-style: italic;">"Working with Dhananjoy and Rakesh was smooth from day one. Communication was excellent and timelines were strictly met."</p>
+                    <div class="client-info">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" alt="Client Avatar">
+                        <div>
+                            <h4>Aarav Mehta</h4>
+                            <p>Founder, E-Commerce Brand</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card testimonial-card reveal delay-3">
+                    <p style="font-size: 0.9rem; color: var(--text-grey); font-style: italic;">"The UGC videos created by their creator network tripled our social media engagement within 30 days."</p>
+                    <div class="client-info">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" alt="Client Avatar">
+                        <div>
+                            <h4>Elena Rostova</h4>
+                            <p>Brand Strategist, Beauty Line</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Frequently Asked <span class="text-gold">Questions</span></h2>
+                <p>Everything you need to know about partnering with InfluBrand Agency.</p>
+            </div>
+            <div class="faq-accordion reveal delay-1">
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <span>How do you select influencers for our brand?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>We analyze influencer audience demographics, engagement ratios, previous brand collaborations, and content authenticity to match your specific target market.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <span>What platforms do you specialize in?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>We primarily focus on Instagram, YouTube, and User-Generated Content (UGC) platforms, covering Reels, integrations, shorts, and long-form reviews.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <span>How can creators apply to join the agency?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>Influencers can click the 'Join Now' button or reach out directly to our WhatsApp support team with their media kit and platform links for evaluation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info reveal">
+                    <h2>Let's Build Something <span class="text-gold">Extraordinary</span></h2>
+                    <p>Connect directly with our leadership team today to map out your custom influencer marketing campaign.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp Support</h4>
+                                <p><a href="https://wa.me/918822883262" target="_blank">+91 8822883262</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <h4>Email Us Direct (Gmail)</h4>
+                                <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=influBrandofficial@gmail.com" target="_blank">influBrandofficial@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <div>
+                                <h4>Govt. Registered Enterprise</h4>
+                                <p><strong>UDYAM:</strong> UDYAM-AS-02-0048973</p>
+                                <p><strong>Legal Name:</strong> Dhananjoy Arjya Services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card contact-form-card reveal delay-2">
+                    <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" placeholder="Tell us about your brand or requirement..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-gold" style="width: 100%;">
+                            <i class="fa-brands fa-whatsapp"></i> Send on WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo-ib">
+                        <span class="letter-i">I</span><span class="letter-b">B</span><span class="dot">.</span>
+                    </a>
+                    <p>Connecting Brands with Trusted Influencers. Premium Influencer Marketing Agency helping businesses grow faster through trusted creators.</p>
+                    
+                    <!-- Udyam Registration & Legal Details -->
+                    <div class="udyam-badge">
+                        <div><i class="fa-solid fa-certificate"></i> <strong>Govt. Registered Enterprise</strong></div>
+                        <div>UDYAM NO: <strong>UDYAM-AS-02-0048973</strong></div>
+                        <div>Legal Name: <strong>Dhananjoy Arjya Services</strong></div>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#about">About Us</a>
+                        <a href="#services">Services</a>
+                        <a href="#process">Process</a>
+                        <a href="#leadership">Leadership</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <div class="footer-links">
+                        <a href="#services">Brand Collaboration</a>
+                        <a href="#services">Influencer Growth</a>
+                        <a href="#services">Campaign Strategy</a>
+                        <a href="#services">UGC Marketing</a>
+                        <a href="#services">YouTube Promotions</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span><a href="https://wa.me/918822883262" target="_blank" style="color: var(--text-grey);">+91 8822883262</a></span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <!-- Direct Gmail Web Redirect Link -->
+                            <span><a href="https://mail.google.com/mail/?view=cm&fs=1&to=influBrandofficial@gmail.com" target="_blank" style="color: var(--text-grey);">influBrandofficial@gmail.com</a></span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-building"></i>
+                            <span>InfluBrand Agency</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <span>InfluBrand Agency</span>. All Rights Reserved. Legal Name: Dhananjoy Arjya Services.</p>
+                <p>Crafted with Luxury & Precision.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/918822883262" class="whatsapp-float" target="_blank" aria-label="Contact on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- INTERACTIVE & ANIMATION JAVASCRIPT -->
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // FAQ Accordion Toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const header = item.querySelector('.faq-header');
+            header.addEventListener('click', () => {
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                item.classList.toggle('active');
+            });
+        });
+
+        // Animated Stats Counter on Scroll
+        const numbers = document.querySelectorAll('.stat-card .number');
+        let hasAnimated = false;
+
+        function startCounters() {
+            numbers.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000;
+                const stepTime = 20;
+                const steps = duration / stepTime;
+                const increment = target / steps;
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.innerText = target + "+";
+                        clearInterval(timer);
+                    } else {
+                        counter.innerText = Math.ceil(current) + "+";
+                    }
+                }, stepTime);
+            });
+        }
+
+        // Premium Intersection Observer for Smooth Page Reveal Animations
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Trigger Counter Animation if Stats section is revealed
+                    if (entry.target.classList.contains('stat-card') && !hasAnimated) {
+                        hasAnimated = true;
+                        startCounters();
+                    }
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Send Form Data directly to WhatsApp
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const text = `Hello InfluBrand Agency,%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Message:* ${encodeURIComponent(message)}`;
+            window.open(`https://wa.me/918822883262?text=${text}`, '_blank');
+        }
+    </script>
+</body>
+</html>
